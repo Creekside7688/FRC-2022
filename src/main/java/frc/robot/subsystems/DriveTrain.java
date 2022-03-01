@@ -67,6 +67,42 @@ public class DriveTrain extends SubsystemBase {
     Diffdrive = new DifferentialDrive(LEFT_MOTORS, RIGHT_MOTORS);
   }
 
+  /**
+   * Resets the encoders
+   */
+  public void resetEncoders() {
+    leftencoder.reset();
+    rightencoder.reset();
+  }
+
+  /**
+   * Get the average distance
+   * @return the average distance of the left and right encoder
+   */
+  public double getAverageDistance() {
+    return (leftencoder.getDistance() + rightencoder.getDistance()) / 2;
+  }
+
+  public double getDiffDistance() {
+    return leftencoder.getDistance() - rightencoder.getDistance();
+  }
+
+  /**
+   * Drive the drivetrain
+   * @param speed Speed (positive = forwards)
+   * @param rotation Rotation
+   */
+  public void drive(double speed, double rotation) {
+    Diffdrive.arcadeDrive(speed, rotation);
+  }
+
+  /**
+   * Stop the drivetrain
+   */
+  public void stop() {
+    Diffdrive.arcadeDrive(0, 0);
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
