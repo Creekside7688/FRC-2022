@@ -5,10 +5,14 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.pneumatics;
 
 public class tilt_Arm extends CommandBase {
   /** Creates a new tilt_Arm. */
-  public tilt_Arm() {
+  private final pneumatics p;
+  public tilt_Arm(pneumatics mp) {
+    p = mp;
+    addRequirements(mp);
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
@@ -18,7 +22,9 @@ public class tilt_Arm extends CommandBase {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    p.push();
+  }
 
   // Called once the command ends or is interrupted.
   @Override
