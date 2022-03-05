@@ -13,6 +13,7 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
+    //Drive train 
     public static final int LEFT_FRONT_TOP_MOTOR = 5;
     public static final int LEFT_FRONT_BOTTOM_MOTOR = 10;
     public static final int LEFT_BACK_TOP_MOTOR = 13;
@@ -28,5 +29,13 @@ public final class Constants {
 
     public static final double WHEELPERIMETERCM = 15.24*Math.PI;
     public static final double DISTENCEPERPULS = WHEELPERIMETERCM/2048;
+
+    //Arm
+    public static final int[] MOTOR_FOR_EXTENDING = new int[]{1,3};
+    public static final int TOP_LIMIT_SWITCH = 0;
+    public static final int BOTTOM_LIMIT_SWITCH = 1;
+
+    //Pneumatic
+    public static final int[] DOUBLE_SOLENOID = new int[]{0,1};
 
 }
