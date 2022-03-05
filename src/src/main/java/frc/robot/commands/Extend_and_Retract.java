@@ -6,9 +6,10 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class Extend extends CommandBase {
+public class Extend_and_Retract extends CommandBase {
+
   /** Creates a new Extend. */
-  public Extend() {
+  public Extend_and_Retract() {
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
