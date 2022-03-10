@@ -4,13 +4,14 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Constants;
 import frc.robot.subsystems.DriveTrain;
 
 public class driveJoystick extends CommandBase {
   private final DriveTrain m_Drivetrain;
-  private final XboxController razer = new XboxController(0);
+  private final Joystick joystick = new Joystick(0);
   /** Creates a new driveJoystick. */
   public driveJoystick(DriveTrain d) {
     m_Drivetrain = d;
@@ -25,7 +26,7 @@ public class driveJoystick extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_Drivetrain.drive(razer.getLeftY(), razer.getRightX());
+    m_Drivetrain.drive(joystick.getRawAxis(Constants.LEFT_Y_AXIS),joystick.getRawAxis(Constants.RIGHT_X_AXIS));
   }
 
   // Called once the command ends or is interrupted.
