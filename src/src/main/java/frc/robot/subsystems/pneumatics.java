@@ -8,13 +8,14 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+import static frc.robot.Constants.*;
 
 
-public class pneumatics extends SubsystemBase {
+public class Pneumatics extends SubsystemBase {
   /** Creates a new pneumatics. */
-  private final DoubleSolenoid cylinders = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 1, 2);
+  private final DoubleSolenoid cylinders = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, DOUBLE_SOLENOID[0], DOUBLE_SOLENOID[1]);
 
-  public pneumatics() {}
+  public Pneumatics() {}
   public void push(){
     cylinders.set(Value.kForward);
   }

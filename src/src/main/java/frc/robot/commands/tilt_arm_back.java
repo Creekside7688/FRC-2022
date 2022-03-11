@@ -5,12 +5,12 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.pneumatics;
+import frc.robot.subsystems.Pneumatics;
 
 public class tilt_arm_back extends CommandBase {
   /** Creates a new tilt_arm_back. */
-  private final pneumatics p;
-  public tilt_arm_back(pneumatics pp) {
+  private final Pneumatics p;
+  public tilt_arm_back(Pneumatics pp) {
     p = pp;
     addRequirements(p);
     // Use addRequirements() here to declare subsystem dependencies.

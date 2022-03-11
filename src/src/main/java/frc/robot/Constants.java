@@ -37,6 +37,7 @@ public final class Constants {
 
     //Pneumatic
     public static final int[] DOUBLE_SOLENOID = new int[]{0,1};
+    
     //Controller
     public static final int RIGHT_X_AXIS = 0;
     public static final int RIGHT_Y_AXIS = 0;
