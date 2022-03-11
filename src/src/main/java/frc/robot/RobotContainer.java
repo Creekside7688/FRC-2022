@@ -8,11 +8,13 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.Extend_and_Retract;
 import frc.robot.commands.driveJoystick;
 import frc.robot.commands.tilt_Arm;
 import frc.robot.commands.tilt_arm_back;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.MotorExtender;
 import frc.robot.subsystems.Pneumatics;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -31,6 +33,10 @@ public class RobotContainer {
   private final DriveTrain dt = new DriveTrain();
   private final driveJoystick drive = new driveJoystick(dt);
 
+  // motor extender
+  private final MotorExtender mext = new MotorExtender();
+  private final Extend_and_Retract ear = new Extend_and_Retract(mext);
+
   // pneumatics
   private final Pneumatics pneu = new Pneumatics();
   private final tilt_Arm forward_tilt = new tilt_Arm(pneu);
@@ -40,6 +46,7 @@ public class RobotContainer {
   private final JoystickButton rb_button = new JoystickButton(joystick, RB_BUTTON);
   private final JoystickButton y_button = new JoystickButton(joystick, Y_BUTTON);
   private final JoystickButton a_button = new JoystickButton(joystick, A_BUTTON);
+  private final JoystickButton x_button = new JoystickButton(joystick, X_BUTTON);
 
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
@@ -59,6 +66,7 @@ public class RobotContainer {
     rb_button.whileHeld(drive);
     y_button.whenPressed(forward_tilt);
     a_button.whenPressed(backward_tilt);
+    x_button.whileHeld(ear);
   }
 
   /**

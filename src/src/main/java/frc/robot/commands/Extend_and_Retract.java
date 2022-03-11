@@ -8,10 +8,11 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.subsystems.MotorExtender;
+import static frc.robot.Constants.*;
 
 public class Extend_and_Retract extends CommandBase {
   private final MotorExtender motorExtender;
-  private final Joystick joystick = new Joystick(0);
+  private final Joystick joystick = new Joystick(JOYSTICK_PORT);
 
   /** Creates a new Extend. */
   public Extend_and_Retract(MotorExtender me) {
@@ -27,7 +28,11 @@ public class Extend_and_Retract extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    motorExtender.run(joystick.getRawAxis(Constants.RIGHT_Y_AXIS));
+    if (joystick.getRawAxis(Constants.L_TRIGGER) > 0) {
+      motorExtender.run((joystick.getRawAxis(Constants.L_TRIGGER) * -1));
+    } else if (joystick.getRawAxis(Constants.R_TRIGGER) > 0) {
+      motorExtender.run(joystick.getRawAxis(Constants.R_TRIGGER));
+    }
   }
 
 
