@@ -20,8 +20,8 @@ public class DriveTrain extends SubsystemBase {
   private final WPI_VictorSPX LBTmotor;
   private final WPI_VictorSPX LBBmotor;
   //Right motors
-  private final WPI_TalonSRX RFTmotor;
-  private final WPI_VictorSPX RFBmotor;
+  private final WPI_VictorSPX RFTmotor;
+  private final WPI_TalonSRX RFBmotor;
   private final WPI_VictorSPX RBTmotor;
   private final WPI_VictorSPX RBBmotor;
 
@@ -39,8 +39,8 @@ public class DriveTrain extends SubsystemBase {
     leftMotor = new MotorControllerGroup(LFTmotor,LFBmotor,LBTmotor,LBBmotor);
     leftMotor.setInverted(true);
 
-    RFTmotor = new WPI_TalonSRX(Constants.RIGHT_FRONT_TOP_MOTOR);
-    RFBmotor = new WPI_VictorSPX(Constants.RIGHT_FRONT_BOTTOM_MOTOR);
+    RFTmotor = new WPI_VictorSPX(Constants.RIGHT_FRONT_TOP_MOTOR);
+    RFBmotor = new WPI_TalonSRX(Constants.RIGHT_FRONT_BOTTOM_MOTOR);
     RBTmotor = new WPI_VictorSPX(Constants.RIGHT_BACK_TOP_MOTOR);
     RBBmotor = new WPI_VictorSPX(Constants.RIGHT_BACK_BOTTOM_MOTOR);
 

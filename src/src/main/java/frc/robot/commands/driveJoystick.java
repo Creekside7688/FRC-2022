@@ -26,7 +26,7 @@ public class driveJoystick extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_Drivetrain.drive(joystick.getRawAxis(Constants.LEFT_Y_AXIS),joystick.getRawAxis(Constants.RIGHT_X_AXIS));
+    m_Drivetrain.drive(joystick.getRawAxis(Constants.LEFT_Y_AXIS)*0.5,joystick.getRawAxis(Constants.RIGHT_X_AXIS)*0.5);
   }
 
   // Called once the command ends or is interrupted.
