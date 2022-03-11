@@ -11,7 +11,7 @@ import frc.robot.subsystems.DriveTrain;
 
 public class driveJoystick extends CommandBase {
   private final DriveTrain m_Drivetrain;
-  private final Joystick joystick = new Joystick(0);
+  private final Joystick joystick = new Joystick(Constants.JOYSTICK_PORT);
   /** Creates a new driveJoystick. */
   public driveJoystick(DriveTrain d) {
     m_Drivetrain = d;
