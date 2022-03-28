@@ -32,7 +32,7 @@ public class driveJoystick extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_Drivetrain.stop();;
+    m_Drivetrain.stop();
   }
 
   // Returns true when the command should end.

@@ -31,9 +31,11 @@ public class Extend_and_Retract extends CommandBase {
   @Override
   public void execute() {
     if (joystick.getRawAxis(Constants.L_TRIGGER) > 0) {
-      motorExtender.run((joystick.getRawAxis(Constants.L_TRIGGER) * -1));
+      motorExtender.run((joystick.getRawAxis(Constants.L_TRIGGER) * -0.5));
     } else if (joystick.getRawAxis(Constants.R_TRIGGER) > 0) {
-      motorExtender.run(joystick.getRawAxis(Constants.R_TRIGGER));
+      motorExtender.run(joystick.getRawAxis(Constants.R_TRIGGER) * 0.5);
+    } else {
+      motorExtender.run(0);
     }
   }
 
