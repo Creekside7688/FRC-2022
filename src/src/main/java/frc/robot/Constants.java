@@ -48,8 +48,8 @@ public final class Constants {
 
     //Arm
     public static final int[] MOTOR_FOR_EXTENDING = new int[]{5,10};
-    public static final int TOP_LIMIT_SWITCH = 0;
-    public static final int BOTTOM_LIMIT_SWITCH = 1;
+    public static final int TOP_LIMIT_SWITCH = 3;
+    public static final int BOTTOM_LIMIT_SWITCH = 4;
 
     //Pneumatic
     public static final int[] DOUBLE_SOLENOID = new int[]{0,1};
