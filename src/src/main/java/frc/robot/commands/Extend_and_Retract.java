@@ -38,10 +38,10 @@ public class Extend_and_Retract extends CommandBase {
       System.out.println("bottom switch active");
     }
     //left down
-    if (joystick.getRawAxis(Constants.L_TRIGGER) > 0) {
+    if (joystick.getRawAxis(Constants.L_TRIGGER) > 0 && !bottomSwitch.get()) {
       motorExtender.run((joystick.getRawAxis(Constants.L_TRIGGER) * -0.5));
     //right up
-    } else if (joystick.getRawAxis(Constants.R_TRIGGER) > 0) {
+    } else if (joystick.getRawAxis(Constants.R_TRIGGER) > 0 && !topSwitch.get()) {
       motorExtender.run(joystick.getRawAxis(Constants.R_TRIGGER) * 0.5);
     } else {
       motorExtender.run(0);

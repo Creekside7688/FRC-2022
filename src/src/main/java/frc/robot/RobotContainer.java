@@ -64,9 +64,12 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     rb_button.whileHeld(drive);
-    y_button.whenPressed(forward_tilt);
-    a_button.whenPressed(backward_tilt);
-    x_button.whileHeld(ear);
+
+    // Safety first
+
+    //y_button.whenPressed(forward_tilt);
+    //a_button.whenPressed(backward_tilt);
+    //x_button.whileHeld(ear);
   }
 
   /**
