@@ -4,6 +4,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
@@ -13,7 +14,8 @@ import static frc.robot.Constants.*;
 public class Extend_and_Retract extends CommandBase {
   private final MotorExtender motorExtender;
   private final Joystick joystick = new Joystick(JOYSTICK_PORT);
-
+  private final DigitalInput topSwitch = new DigitalInput(Constants.TOP_LIMIT_SWITCH);
+  private final DigitalInput bottomSwitch = new DigitalInput(Constants.BOTTOM_LIMIT_SWITCH);
   /** Creates a new Extend. */
   public Extend_and_Retract(MotorExtender me) {
     motorExtender = me;
@@ -30,9 +32,16 @@ public class Extend_and_Retract extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if (joystick.getRawAxis(Constants.L_TRIGGER) > 0) {
+    if(topSwitch.get()){
+      System.out.println("top switch active");
+    }else if(bottomSwitch.get()){
+      System.out.println("bottom switch active");
+    }
+    //left down
+    if (joystick.getRawAxis(Constants.L_TRIGGER) > 0 && !bottomSwitch.get()) {
       motorExtender.run((joystick.getRawAxis(Constants.L_TRIGGER) * -0.5));
-    } else if (joystick.getRawAxis(Constants.R_TRIGGER) > 0) {
+    //right up
+    } else if (joystick.getRawAxis(Constants.R_TRIGGER) > 0 && !topSwitch.get()) {
       motorExtender.run(joystick.getRawAxis(Constants.R_TRIGGER) * 0.5);
     } else {
       motorExtender.run(0);

@@ -28,8 +28,8 @@ public final class Constants {
     public static final int A_BUTTON = 1;
     public static final int B_BUTTON = 2;
 
-    //Drive train 
-    // TODO Change Ports
+    //Drive train
+    public static final double SAFETYSPEED = 1; 
     public static final int LEFT_FRONT_TOP_MOTOR = 3;
     public static final int LEFT_FRONT_BOTTOM_MOTOR = 9;
     public static final int LEFT_BACK_TOP_MOTOR = 12;
@@ -48,8 +48,8 @@ public final class Constants {
 
     //Arm
     public static final int[] MOTOR_FOR_EXTENDING = new int[]{5,10};
-    public static final int TOP_LIMIT_SWITCH = 0;
-    public static final int BOTTOM_LIMIT_SWITCH = 1;
+    public static final int TOP_LIMIT_SWITCH = 3;
+    public static final int BOTTOM_LIMIT_SWITCH = 4;
 
     //Pneumatic
     public static final int[] DOUBLE_SOLENOID = new int[]{0,1};
