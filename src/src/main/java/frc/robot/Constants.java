@@ -29,7 +29,7 @@ public final class Constants {
     public static final int B_BUTTON = 2;
 
     //Drive train
-    public static final double SAFETYSPEED = 0.25; 
+    public static final double SAFETYSPEED = 0.4; 
     public static final int LEFT_FRONT_TOP_MOTOR = 3;
     public static final int LEFT_FRONT_BOTTOM_MOTOR = 9;
     public static final int LEFT_BACK_TOP_MOTOR = 12;
