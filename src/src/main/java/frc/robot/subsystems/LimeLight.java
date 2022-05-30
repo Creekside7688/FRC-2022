@@ -32,6 +32,10 @@ public class LimeLight extends SubsystemBase {
     return ta.getDouble(0.0);
   }
 
+  public double getTarget(){
+    return tv.getDouble(0.0);
+  }
+
   
 
   @Override
