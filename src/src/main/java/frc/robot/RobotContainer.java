@@ -9,11 +9,13 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.Extend_and_Retract;
+import frc.robot.commands.auto_drive;
 import frc.robot.commands.driveJoystick;
 import frc.robot.commands.tilt_Arm;
 import frc.robot.commands.tilt_arm_back;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.LimeLight;
 import frc.robot.subsystems.MotorExtender;
 import frc.robot.subsystems.Pneumatics;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -31,7 +33,9 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final DriveTrain dt = new DriveTrain();
+  private final LimeLight lime = new LimeLight();
   private final driveJoystick drive = new driveJoystick(dt);
+
 
   // motor extender
   private final MotorExtender mext = new MotorExtender();
@@ -47,8 +51,9 @@ public class RobotContainer {
   private final JoystickButton y_button = new JoystickButton(joystick, Y_BUTTON);
   private final JoystickButton a_button = new JoystickButton(joystick, A_BUTTON);
   private final JoystickButton x_button = new JoystickButton(joystick, X_BUTTON);
-
+  // auto 
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
+  private final auto_drive auto = new auto_drive(dt,lime);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -77,6 +82,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return m_autoCommand;
+    return auto;
   }
 }

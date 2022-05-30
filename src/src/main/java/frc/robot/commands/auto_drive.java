@@ -43,6 +43,7 @@ public class auto_drive extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
+    dt.drive(0, 0);
    
   }
 
@@ -50,8 +51,8 @@ public class auto_drive extends CommandBase {
   @Override
   public boolean isFinished() {
     if(ll.getTarget()==1){
-      if(ll.getY()==0){
-      return true;
+      if(ll.getY()>-5 && ll.getY()>5){
+        return true;
       }
     }
     
