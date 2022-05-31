@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.ExtendLift;
 import frc.robot.commands.Extend_and_Retract;
 import frc.robot.commands.driveJoystick;
 import frc.robot.commands.tilt_Arm;
@@ -20,6 +21,8 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 import static frc.robot.Constants.*;
+
+import com.ctre.phoenix.platform.can.AutocacheState;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -47,6 +50,8 @@ public class RobotContainer {
   private final JoystickButton y_button = new JoystickButton(joystick, Y_BUTTON);
   private final JoystickButton a_button = new JoystickButton(joystick, A_BUTTON);
   private final JoystickButton x_button = new JoystickButton(joystick, X_BUTTON);
+
+  private final ExtendLift autoClimb = new ExtendLift(mext);
 
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
@@ -77,6 +82,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return m_autoCommand;
+    return autoClimb;
   }
 }
