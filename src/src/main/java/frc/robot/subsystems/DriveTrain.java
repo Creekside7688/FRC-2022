@@ -63,11 +63,16 @@ public class DriveTrain extends SubsystemBase {
   }
 
   public double get_rightEncoder_value(){
-    return rightEncoder.getDecodingScaleFactor();
+    return rightEncoder.getDistance();
   }
 
   public double get_leftEncoder_value(){
     return leftEncoder.getDistance();
+  }
+
+  public void reset_encoders(){
+    leftEncoder.reset();
+    rightEncoder.reset();
   }
 
   public void drive(double speed,double rotation){
